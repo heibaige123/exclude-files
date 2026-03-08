@@ -1,7 +1,7 @@
 {
   "name": "exclude-files",
-  "displayName": "exclude-files",
-  "description": "",
+  "displayName": "%excludeFiles.extension.displayName%",
+  "description": "%excludeFiles.extension.description%",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.109.0"
@@ -14,10 +14,19 @@
   "contributes": {
     "commands": [
       {
-        "command": "exclude-files.helloWorld",
-        "title": "Hello World"
+        "command": "exclude-files.addToFilesExclude",
+        "title": "%excludeFiles.command.addToFilesExclude.title%"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "exclude-files.addToFilesExclude",
+          "group": "navigation@99",
+          "when": "resourceScheme == file"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",

@@ -1,0 +1,5 @@
+{
+  "excludeFiles.extension.displayName": "Exclude Files",
+  "excludeFiles.extension.description": "Add selected files or folders to files.exclude from Explorer context menu.",
+  "excludeFiles.command.addToFilesExclude.title": "Exclude: Add To files.exclude"
+}

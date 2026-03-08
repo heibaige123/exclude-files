@@ -1,0 +1,6 @@
+{
+  "excludeFiles.message.noSelection": "No files or folders were selected.",
+  "excludeFiles.message.notInWorkspace": "Selected resources are not inside a workspace folder.",
+  "excludeFiles.message.noValidItems": "No valid files or folders were added to files.exclude.",
+  "excludeFiles.message.addedCount": "Added {0} item(s) to files.exclude."
+}

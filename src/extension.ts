@@ -1,26 +1,25 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { addSelectedResourcesToFilesExclude } from './commands/add-to-files-exclude';
+import { COMMAND_ID } from './constants';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+/**
+ * 激活扩展并注册命令处理器。
+ */
+export function activate(context: vscode.ExtensionContext): void {
+	/** 可释放的命令注册对象，绑定扩展生命周期。 */
+	const disposable = vscode.commands.registerCommand(
+		COMMAND_ID,
+		async (resource: vscode.Uri, selectedResources?: vscode.Uri[]) => {
+			await addSelectedResourcesToFilesExclude(resource, selectedResources);
+		}
+	);
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "exclude-files" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('exclude-files.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from exclude-files!');
-	});
-
+	/** 扩展卸载时自动清理命令注册。 */
 	context.subscriptions.push(disposable);
 }
-
-// This method is called when your extension is deactivated
-export function deactivate() {}
+/**
+ * 扩展停用入口。
+ */
+export function deactivate(): void {
+	/** 当前没有需要清理的资源。 */
+}

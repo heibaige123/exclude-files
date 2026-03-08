@@ -1,0 +1,6 @@
+{
+  "excludeFiles.message.noSelection": "未选择任何文件或文件夹。",
+  "excludeFiles.message.notInWorkspace": "所选资源不在任何工作区文件夹内。",
+  "excludeFiles.message.noValidItems": "没有可添加到 files.exclude 的有效文件或文件夹。",
+  "excludeFiles.message.addedCount": "已将 {0} 个条目添加到 files.exclude。"
+}

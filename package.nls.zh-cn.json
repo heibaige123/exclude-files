@@ -1,0 +1,5 @@
+{
+  "excludeFiles.extension.displayName": "排除文件",
+  "excludeFiles.extension.description": "在资源管理器右键菜单中将选中文件或文件夹添加到 files.exclude。",
+  "excludeFiles.command.addToFilesExclude.title": "排除：添加到 files.exclude"
+}
