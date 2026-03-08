@@ -3,6 +3,11 @@
   "displayName": "%excludeFiles.extension.displayName%",
   "description": "%excludeFiles.extension.description%",
   "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heibaige123/exclude-files.git"
+  },
   "engines": {
     "vscode": "^1.109.0"
   },
@@ -11,6 +16,7 @@
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
+  "icon": "images/icon.png",
   "contributes": {
     "commands": [
       {
@@ -40,7 +46,10 @@
     "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
     "check-types": "tsc --noEmit",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "vsix:package": "pnpm dlx @vscode/vsce package --allow-missing-repository",
+    "vsix:install": "code --install-extension exclude-files-$npm_package_version.vsix",
+    "vsix:reinstall": "pnpm run vsix:package && pnpm run vsix:install"
   },
   "devDependencies": {
     "@types/vscode": "^1.109.0",
